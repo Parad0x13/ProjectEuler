@@ -2,18 +2,7 @@ def M(m, k, s, n):
 	if n > m: return n - s
 	else: return M(m, k, s, M(m, k, s, n + k))
 
-# I'm finding that there seem to be some patterns associated with the cycle... Not sure exactly what though
-def F(m, k, s):
-	# Find the cycle
-	# Cycle length seems to always be k - s
-	# It also seems that as n decreases the cycle is still a subset of n0... hmmm...
-	#    This actually doesn't seem to be true, look at the cycle of 20, 10, 1 - 9
-	#    20, 10, 3 contains 18 which isn't in 20, 10, 1
-	# Also it looks like cycle_k+1 = cycle_k shifted forward 2 places and truncated one in size
-	# It also seems that in the cycle of m, s, k that the last cycle in the group is always len(1) and contains m - (s - 1)
-	# The cycle set of m, s, k where cycle_end-1 = [cycle_end[0] + 2, cycle_end[0] + 1]
-	# And the cycle set of m, s, k where cycle_end-2 = [cycle_end-2[0], cycle_end-2[0] + 1, cycle_end-2[0] + 2]
-	# I don't know how they cycle changes after that though
+def findCycle(m, k, s):
 	cycle = []
 	start = None
 	for n in range(max(m, k, s)):    # I think this only needs to go up to k tbh
@@ -21,25 +10,88 @@ def F(m, k, s):
 		if val == start: break
 		if start == None: start = val
 		cycle.append(val)
+	return cycle
 
-	# Find fixed points within cycle
+def findFixedPoints(cycle):
 	fixedPoints = []
 	for point in cycle:
-		if cycle[point % len(cycle)] == point:
-			fixedPoints.append(point)
+		if cycle[point % len(cycle)] == point: fixedPoints.append(points)
+	# Possible optimization here, not sure why it works...
+	# Can we assume that if the first in the cycle works then they will all work?
+	# Seems to be the case, not sure why
+	#if cycle[cycle[0] % len(cycle)] == cycle[0]: fixedPoints = cycle
+	return fixedPoints
 
-	print("{}, {}, {} = {}".format(m, k, s, cycle))
+def F(m, k, s):
+	cycle = findCycle(m, k, s)
+	fixedPoints = findFixedPoints(cycle)
+	print("{}, {}, {} = {}: {}, {}, {}".format(m, k, s, cycle, min(cycle), max(cycle), cycle.index(m - s + 1)))
 	return set(fixedPoints)
 
 def SF(m, k, s): return sum(F(m, k, s))
 
 def S(p, m):
 	total = 0
-	for k in range(1, p + 1):
-		for s in range(1, k):
-			val = SF(m, k, s)
-			total += val
+	for k in range(1, p + 1): total += SF(m, k, s)
 	return total
 
-print(S(20, 20))
+print(S(10, 10))
 print("Done")
+
+print("\nCurrently Testing Hypothesis")
+
+m = 10
+k = m
+s = k - 1
+p = m
+
+# OBSERVATIONS
+cycle_len = k - s
+cycle_min = m - s + 1
+cycle_max = m - 2*s + k    # min(cycle) + len(cycle) - 1 = m - 2s + k, [NOTE] Can bitshift s, test this
+
+# The core cycle can be precalculated and correlated with an offset index table for every cycle iterating through s
+# Offsets consist of two sections: normal and weird in that order
+offsets_len = cycle_len
+offsetsNormal_max = int(m / 2)
+offsetsWeird_len = m - offsetsNormal_max
+offsetsNormal_len = offsets_len - offsetsWeird_len
+offsetsNormal_min = offsetsNormal_max - offsetsNormal_len
+offsetsNormal = list(range(offsetsNormal_min + 1, offsetsNormal_max + 1))    # [TODO] Calculate once and reuse
+
+# HUGE REALIZATION!!! The weird values from within each k cycle match the offsets in each of the k cycles!!!
+
+# Discover weirds
+weirds = []
+for k in range(2, p + 1):
+	cycle = findCycle(m, k, 1)
+	index = cycle.index(min(cycle))
+	if index == offsetsWeird_len: break
+	weirds.append(index)
+print(weirds)
+
+for minimalAnchor in range(m, 1, -1): print(minimalAnchor)    # This is the proper minimum anchor calculation
+
+# [LEFT OFF] Working on extrapolating future values out of cycle_s=1 for each value of k
+# Then I need to find if there's a way to extract previous k cycles out of cycle_k=m_s=1
+# This way I should only need to calculate the 'weird' values and then cycle_k=m_s=1
+
+"""
+total = 0
+for k in range(2, p + 1):
+	cycle = findCycle(m, k, 1)
+	index = cycle.index(min(cycle))
+
+	# Once this is true we are now processing offsetsNormal values
+	if index == offsetsWeird_len: pass
+
+	for s in range(1, k):
+		cycle = findCycle(m, k, s)
+		fixedPoints = findFixedPoints(cycle)
+		print("{}, {}, {} = {}: {}, {}, {}".format(m, k, s, cycle, min(cycle), max(cycle), cycle.index(m - s + 1)))
+		total += sum(fixedPoints)
+print()
+print(total)
+"""
+
+print("Done Testing")
