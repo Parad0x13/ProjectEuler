@@ -14,3 +14,8 @@ On the one hand they are nice and easy to use
 On the other hand it means to view my source I have to use the Jupyter Notebook software
 Or copy my source directly from the .ipynb file which is messy and non-elegant
 In the end I decided to use the Jupyter Notebooks as I could always revert if needed
+
+On 2020.01.08.0831.EST I decided to re-manage it AGAIN!!!
+No need for Jupyter Notebooks really, they aren't the most logical solution
+Instead I can create an Euler python package and put all the logic there
+Now it's significantly easier to manage, especially since all resources can be shared easily now
