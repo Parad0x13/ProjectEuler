@@ -72,24 +72,29 @@ def primesUnder(n, alg = BRUTEFORCE):
 def primeFactors(n, alg = POLLARDRHO):
     if alg == POLLARDRHO: return primeFactors_pollardrho(n)
 
+# [TODO] This is not an elegant or effective solution
+# I need to find a way to properly do this...
 def primeFactors_pollardrho(n, alg = POLLARDRHO):
     retVal = []
 
+    if n < 2: return None
+    if isPrime(n): return [n]
+
     while True:
-        # We can basically stop here since we found the last prime factor
+        factor = PollardRho(n)
+
+        if isPrime(factor):
+            retVal.append(factor)
+            n /= factor
+            n = int(n)
+
         if isPrime(n):
-            retVal.append(int(n))
+            retVal.append(n)
             return retVal
 
-        primeDivisor = PollardRho(n)
-        retVal.append(int(primeDivisor))
-        n /= primeDivisor
-
-    return retVal
-
 # https://www.geeksforgeeks.org/pollards-rho-algorithm-prime-factorization/
-# PollardRho will return at least one of the prime factors
-# This algorithm contains a fall back in case it fails to find a prime factor
+# PollardRho will return at least one of the factors
+# This algorithm contains a fall back in case it fails to find a factor
 def PollardRho(n):
     if n == 1: return n    # 1 has no factorization
     if n % 2 == 0: return 2    # Even number means one of the divisors is 2
