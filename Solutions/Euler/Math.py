@@ -35,3 +35,11 @@ def primesBelow(max, alg = BRUTEFORCE):
         if isPrime(n, alg):
             retVal.append(n)
     return retVal
+
+def collatzSequenceLength(n):
+    len = 1
+    while n != 1:
+        if n % 2 == 0: n /= 2
+        else: n = n * 3 + 1
+        len += 1
+    return len
