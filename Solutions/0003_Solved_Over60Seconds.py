@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 import math
 
 # Uses the Sieve Of Eratosthenes method

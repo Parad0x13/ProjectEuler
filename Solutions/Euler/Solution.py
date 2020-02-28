@@ -15,7 +15,7 @@ class Solution:
         return None
 
     def run(self):
-        self.log("Executing Project Euler Solution {}".format(sys.argv[0].replace(".py", "")))
+        self.log("Executing Project Euler Solution '{}'".format(sys.argv[0].replace(".py", "")))
         sys.stdout.flush()
 
         beg = timeit.default_timer()

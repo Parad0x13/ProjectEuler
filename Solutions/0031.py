@@ -4,6 +4,7 @@
 # I guess the problem being asked is 'calculate unrestricted partitions'
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
 	pass

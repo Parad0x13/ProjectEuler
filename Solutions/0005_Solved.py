@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 # [TODO] Find a more elegant solution than what I'm doing here
 def logic():
