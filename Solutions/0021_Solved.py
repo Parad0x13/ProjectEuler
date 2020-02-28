@@ -23,6 +23,6 @@ def logic():
 
 	return sumRange(amicable)
 
-solution = Solution(31626)
+solution = Solution(value = 31626, placement = None)
 solution.logic = logic
 solution.run()
