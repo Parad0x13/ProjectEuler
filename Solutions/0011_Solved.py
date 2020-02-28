@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 array = [
 [ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8],
@@ -81,6 +82,6 @@ def logic():
 	dl = findDiagonalFaceLeftMax()
 	return max(ve, ho, dr, dl)
 
-solution = Solution(70600674)
+solution = Solution(value = 70600674, placement = None)
 solution.logic = logic
 solution.run()

@@ -1,6 +1,6 @@
 import math
 
-ALG_BRUTEFORCE = "BRUTEFORCE"
+BRUTEFORCE = "BRUTEFORCE"
 
 def isPrime_BruteForce(n):
     if n == 0 or n == 1: return False
@@ -12,15 +12,15 @@ def isPrime_BruteForce(n):
 
     return True
 
-def isPrime(n, algorithm = ALG_BRUTEFORCE):
-    if algorithm == ALG_BRUTEFORCE:
+def isPrime(n, alg = BRUTEFORCE):
+    if algorithm == BRUTEFORCE:
         return isPrime_BruteForce(n)
 
     return None
 
-def primesBelow(max, algorithm = ALG_BRUTEFORCE):
+def primesBelow(max, alg = BRUTEFORCE):
     retVal = []
     for n in range(max + 1):
-        if isPrime(n, algorithm):
+        if isPrime(n, alg):
             retVal.append(n)
     return retVal

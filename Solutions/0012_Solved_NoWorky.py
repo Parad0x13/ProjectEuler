@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def findTriangle(number):
     triangle = 0
@@ -41,6 +42,6 @@ def logic():
 			maxDivisors = divisors
 		x += 1
 
-solution = Solution(76576500)
+solution = Solution(value = 76576500, placement = None)
 solution.logic = logic
 solution.run()
