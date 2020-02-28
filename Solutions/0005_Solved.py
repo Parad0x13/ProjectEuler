@@ -1,7 +1,6 @@
 from Euler.Solution import Solution
 
 # [TODO] Find a more elegant solution than what I'm doing here
-
 def logic():
     n = 1
     while True:
@@ -28,6 +27,6 @@ def logic():
         n % 1  == 0: return n
         n += 1
 
-solution = Solution(232792560)
+solution = Solution(value = 232792560, placement = None)
 solution.logic = logic
 solution.run()

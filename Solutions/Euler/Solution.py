@@ -16,12 +16,13 @@ class Solution:
 
     def run(self):
         self.log("Executing Project Euler Solution {}".format(sys.argv[0].replace(".py", "")))
+        sys.stdout.flush()
 
         beg = timeit.default_timer()
         value = self.logic()
         fin = timeit.default_timer()
 
-        self.log("Finished executing in {} seconds".format(fin - beg))
+        self.log("Finished executing in {:.4f} seconds".format(fin - beg))
 
         if self.value == None:
             if value == None: self.log("The correct value is not known, and no value was discovered")
