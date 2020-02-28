@@ -189,3 +189,11 @@ def isNumberHexagonal(n):
     return False
 
 def isPermutation(a, b): return sorted(str(a)) == sorted(str(b))
+
+def letterScore(string):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    retVal = 0
+    for letter in string.upper():
+        if letter not in alphabet: continue    # Just incase anything non-lettery pops up
+        retVal += alphabet.index(letter) + 1
+    return retVal
