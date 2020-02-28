@@ -13,6 +13,6 @@ def logic():
 
     return largest
 
-solution = Solution(23514624000)
+solution = Solution(value = 23514624000, placement = None)
 solution.logic = logic
 solution.run()

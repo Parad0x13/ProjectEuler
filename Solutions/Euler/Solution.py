@@ -21,7 +21,7 @@ class Solution:
         value = self.logic()
         fin = timeit.default_timer()
 
-        self.log("Finished executing in {} milliseconds".format(fin - beg))
+        self.log("Finished executing in {} seconds".format(fin - beg))
 
         if self.value == None:
             if value == None: self.log("The correct value is not known, and no value was discovered")
