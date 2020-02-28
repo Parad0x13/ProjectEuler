@@ -1,7 +1,9 @@
 import math
+from random import randint
 
 BRUTEFORCE = "BRUTEFORCE"
 OPTIMIZED = "OPTIMIZED"
+POLLARDRHO = "POLLARDRHO"
 
 def divisors(n, alg = OPTIMIZED):
     if alg == BRUTEFORCE: return divisors_bruteforce(n)
@@ -60,6 +62,51 @@ def primesUnder(n, alg = BRUTEFORCE):
         if isPrime(N, alg): retVal.append(N)
     return retVal
 
+def primeFactors(n, alg = POLLARDRHO):
+    if alg == POLLARDRHO: return primeFactors_pollardrho(n)
+
+def primeFactors_pollardrho(n, alg = POLLARDRHO):
+    retVal = []
+
+    while True:
+        # We can basically stop here since we found the last prime factor
+        if isPrime(n):
+            retVal.append(int(n))
+            return retVal
+
+        primeDivisor = PollardRho(n)
+        retVal.append(int(primeDivisor))
+        n /= primeDivisor
+
+    return retVal
+
+# https://www.geeksforgeeks.org/pollards-rho-algorithm-prime-factorization/
+# PollardRho will return at least one of the prime factors
+# This algorithm contains a fall back in case it fails to find a prime factor
+def PollardRho(n):
+    if n == 1: return n    # 1 has no factorization
+    if n % 2 == 0: return 2    # Even number means one of the divisors is 2
+
+    x = randint(2, n)    # Seed x with a random [2 to int)
+    y = x
+    c = randint(1, n)    # In case a composite fails in a previous attempt
+
+    d = 1    # Candidate divisor
+
+    # Until the prime factor isn't obtained. If n is prime, return n
+    while d == 1:
+        x = (x * x + c) % n    # Tortoise move
+
+        y = (y * y + c) % n    # Hare move
+        y = (y * y + c) % n
+
+        d = GCD(abs(x - y), n)    # Check GCD of |x - y| and n
+
+        # Retry if the algorithm fails to find prime factor with chosen x and c
+        if d == n: return PollardRho(n)
+
+    return d
+
 def collatzSequenceLength(n):
     len = 1
     while n != 1:
@@ -79,14 +126,6 @@ def factorial_bruteforce(n):
 # Also I would like to add memoization to this and test that out too
 def GCD(a, b, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return GCD_bruteforce(a, b)
-
-"""def GCD_bruteforce(a, b):
-    if a == 0: return b
-    if b == 0: return a
-    if a == b: return a
-    if a > b: return GCD_bruteforce(a - b, b)
-    return GCD_bruteforce(a, b - a)
-"""
 
 def GCD_bruteforce(a, b):
     if b == 0: return a
