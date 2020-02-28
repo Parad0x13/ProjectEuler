@@ -1,4 +1,4 @@
-# Solved 2019.08.12.1655.EST as the 22405th person to do so
+# Solved 2019.08.12.1655.EST
 
 from Euler.Solution import Solution
 import Euler.Math as EM
