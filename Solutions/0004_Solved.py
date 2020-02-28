@@ -11,9 +11,8 @@ def logic():
             val = x * y
             if isPalindrome(val): maxVal = max(maxVal, val)
 
-    print("Largest Palindrome made with products from 3 digit numbers is {}".format(maxVal))
     return maxVal
 
-solution = Solution(906609)
+solution = Solution(value = 906609, placement = None)
 solution.logic = logic
 solution.run()

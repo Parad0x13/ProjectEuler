@@ -22,6 +22,6 @@ def logic():
 
     return primeFactor
 
-solution = Solution(6857, placement = None)
+solution = Solution(value = 6857, placement = None)
 solution.logic = logic
 solution.run()
