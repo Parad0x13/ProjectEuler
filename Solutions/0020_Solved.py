@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
     factorial = 1
@@ -7,6 +8,6 @@ def logic():
         summed = str(factorial)
         return sum(map(int, summed))
 
-solution = Solution(648)
+solution = Solution(value = 648, placement = None)
 solution.logic = logic
 solution.run()
