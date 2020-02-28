@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
     maxX = 1005
@@ -50,6 +51,6 @@ def logic():
 
     return finalSum
 
-solution = Solution(669171001)
+solution = Solution(value = 669171001, placement = None)
 solution.logic = logic
 solution.run()
