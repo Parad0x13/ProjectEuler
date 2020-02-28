@@ -3,6 +3,6 @@ from Euler.Solution import Solution
 def logic():
 	pass
 
-solution = Solution(SOMETHING)
+solution = Solution(0)
 solution.logic = logic
 solution.run()
