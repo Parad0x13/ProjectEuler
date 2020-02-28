@@ -1,7 +1,8 @@
-# Finished 2019.07.30.1530.EST as the the 38635th person to do so
+# Finished 2019.07.30.1530.EST
 # I totally guessed the max values for the ranges... but it worked!
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
 	count = 0
@@ -14,6 +15,6 @@ def logic():
 				print("#: {}^{} = {}, len = {}".format(count, x, n, val, length))
 	print("Done")
 
-solution = Solution(49)
+solution = Solution(value = 49, placement = 38635)
 solution.logic = logic
 solution.run()

@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def isPalindrome(number):
     if str(number) == str(number)[::-1]: return 1
@@ -19,6 +20,6 @@ def logic():
 
 	return finalSum
 
-solution = Solution(872187)
+solution = Solution(value = 872187, placement = None)
 solution.logic = logic
 solution.run()

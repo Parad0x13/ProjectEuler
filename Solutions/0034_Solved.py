@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def fact(x):
     num = 1
@@ -25,6 +26,6 @@ def logic():
 
 	return finalSum
 
-solution = Solution(40730)
+solution = Solution(value = 40730, placement = None)
 solution.logic = logic
 solution.run()

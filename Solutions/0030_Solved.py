@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def evalNumber(number):
 	value = 0
@@ -17,6 +18,6 @@ def logic():
 			array.append(x)
 	return finalSum
 
-solution = Solution(443839)
+solution = Solution(value = 443839, placement = None)
 solution.logic = logic
 solution.run()

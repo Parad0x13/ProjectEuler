@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def number():
     value = 0
@@ -9,6 +10,6 @@ def number():
 def logic():
 	return int(str(number())[-10:])
 
-solution = Solution(9110846700)
+solution = Solution(value = 9110846700, placement = None)
 solution.logic = logic
 solution.run()

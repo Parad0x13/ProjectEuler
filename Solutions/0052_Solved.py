@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def val2array(value):
     array = []
@@ -16,6 +17,6 @@ def logic():
 		and val2array(x) == val2array(x * 6):
 			return x
 
-solution = Solution(142857)
+solution = Solution(value = 142857, placement = None)
 solution.logic = logic
 solution.run()
