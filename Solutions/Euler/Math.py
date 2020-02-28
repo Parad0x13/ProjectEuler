@@ -17,3 +17,10 @@ def isPrime(n, algorithm = ALG_BRUTEFORCE):
         return isPrime_BruteForce(n)
 
     return None
+
+def primesBelow(max, algorithm = ALG_BRUTEFORCE):
+    retVal = []
+    for n in range(max + 1):
+        if isPrime(n, algorithm):
+            retVal.append(n)
+    return retVal
