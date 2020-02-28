@@ -28,5 +28,5 @@ However I do not see the need to find the most optimized and convoluted solution
 The elegance that python allows me outweighs the marginal efficiency afforded by C/CPP in my opinion
 As this is a repository the old work won't be lost, but rather archived which is fine by me
 This process, once complete, will simplify the file hierarchy and make solution finding much more elegant
-I will be creating a 'Refactored Solutions' folder for all equations that have been effectively converted to python only
+I will be creating a 'Solutions' folder for all equations that have been effectively converted to python only
 All subsequent solutions to an equation will be removed from master
