@@ -1,3 +1,7 @@
+# You can generate the function to automatically create the equation
+# Just need to run it through something like wolframalpha to find what the stride is supposed to be
+# Add a TODO to find a better way of generating this function manually and not rely on an external problem solver
+
 from Euler.Solution import Solution
 import Euler.Math as EM
 
