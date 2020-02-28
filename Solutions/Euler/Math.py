@@ -43,3 +43,15 @@ def collatzSequenceLength(n):
         else: n = n * 3 + 1
         len += 1
     return len
+
+"""cpp_int factorial(cpp_int n) {
+	if(n == 0 || n == 1)return 1;
+	else return factorial(n - 1) * n;
+}"""
+
+def factorial(n, alg = BRUTEFORCE):
+    if alg == BRUTEFORCE: return factorial_bruteforce(n)
+
+def factorial_bruteforce(n):
+    if n == 0 or n == 1: return 1
+    return factorial_bruteforce(n - 1) * n
