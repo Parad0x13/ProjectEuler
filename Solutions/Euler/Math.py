@@ -17,8 +17,6 @@ def divisors_bruteforce(n):
 def isPrime(n, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return isPrime_bruteforce(n)
 
-    return None
-
 def isPrime_bruteforce(n):
     if n == 0 or n == 1: return False
 
@@ -44,14 +42,26 @@ def collatzSequenceLength(n):
         len += 1
     return len
 
-"""cpp_int factorial(cpp_int n) {
-	if(n == 0 || n == 1)return 1;
-	else return factorial(n - 1) * n;
-}"""
-
 def factorial(n, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return factorial_bruteforce(n)
 
 def factorial_bruteforce(n):
     if n == 0 or n == 1: return 1
     return factorial_bruteforce(n - 1) * n
+
+# I would really like to test this against Lehmer's GCD algorithm
+# Also I would like to add memoization to this and test that out too
+def GCD(a, b, alg = BRUTEFORCE):
+    if alg == BRUTEFORCE: return GCD_bruteforce(a, b)
+
+"""def GCD_bruteforce(a, b):
+    if a == 0: return b
+    if b == 0: return a
+    if a == b: return a
+    if a > b: return GCD_bruteforce(a - b, b)
+    return GCD_bruteforce(a, b - a)
+"""
+
+def GCD_bruteforce(a, b):
+    if b == 0: return a
+    return GCD_bruteforce(b, a % b)
