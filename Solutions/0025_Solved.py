@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
 	fibonacci = 1
@@ -13,6 +14,6 @@ def logic():
 
 	return iteration
 
-solution = Solution(4782)
+solution = Solution(value = 4782, placement = None)
 solution.logic = logic
 solution.run()
