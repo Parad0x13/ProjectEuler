@@ -19,3 +19,14 @@ On 2020.01.08.0831.EST I decided to re-manage it AGAIN!!!
 No need for Jupyter Notebooks really, they aren't the most logical solution
 Instead I can create an Euler python package and put all the logic there
 Now it's significantly easier to manage, especially since all resources can be shared easily now
+
+2020.02.27.2343.EST I've decided to get rid of old C/CPP code to favor Python entirely
+This will take awhile to do as my CPP code has lots of helpers that need to be translated
+However I note that the importance of Project Euler solutions is not to calculate it the 'fastest', but rather efficiently
+Significantly more complex and optimized solutions may potentially be implemented in compiled code
+However I do not see the need to find the most optimized and convoluted solutions to equations anymore
+The elegance that python allows me outweighs the marginal efficiency afforded by C/CPP in my opinion
+As this is a repository the old work won't be lost, but rather archived which is fine by me
+This process, once complete, will simplify the file hierarchy and make solution finding much more elegant
+I will be creating a 'Refactored Solutions' folder for all equations that have been effectively converted to python only
+All subsequent solutions to an equation will be removed from master
