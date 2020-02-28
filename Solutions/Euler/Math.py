@@ -2,7 +2,24 @@ import math
 
 BRUTEFORCE = "BRUTEFORCE"
 
-def isPrime_BruteForce(n):
+def divisors(n, alg = BRUTEFORCE):
+    if alg == BRUTEFORCE: return divisors_bruteforce(n)
+
+def divisors_bruteforce(n):
+    retVal = []
+
+    for x in range(1, n + 1):
+        if n % x == 0:
+            retVal.append(x)
+
+    return retVal
+
+def isPrime(n, alg = BRUTEFORCE):
+    if alg == BRUTEFORCE: return isPrime_bruteforce(n)
+
+    return None
+
+def isPrime_bruteforce(n):
     if n == 0 or n == 1: return False
 
     limit = int(math.sqrt(n)) + 1
@@ -11,12 +28,6 @@ def isPrime_BruteForce(n):
             return False
 
     return True
-
-def isPrime(n, alg = BRUTEFORCE):
-    if algorithm == BRUTEFORCE:
-        return isPrime_BruteForce(n)
-
-    return None
 
 def primesBelow(max, alg = BRUTEFORCE):
     retVal = []
