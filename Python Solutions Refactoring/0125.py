@@ -1,19 +1,26 @@
+# Solved 2019.08.22.1333.EST and was the 12032nd person to do so
+
 from Euler.Solution import Solution
 
-# We needn't calculate all the way to 10^8, we can be smarter
-def palindromes(power):
-    retVal = []
-    upper = int("9" * (int((power + 1) / 2) + (power + 1) 5 2))
-    for n in range(1, upper):
-        palindrome = str(n) + str(n)[::-1][1:]
-        if len(palindrome) > power + 1: break
-        retVal.append(int(palindrome))
-    return retVal
+values = []
+def palindromicConsecutiveSquares(base, limit):
+    global values
+    n = base
+    val = 0
+    while True:
+        val += n * n
+        if val > limit: break
+
+        if str(val) == str(val)[::-1] and n - base > 0:
+            print("{} is palindromic with base {} to {}".format(val, base, n))
+            values.append(val)
+
+        n += 1
 
 def logic():
-	# Still trying to figure out how to get it to actually generate everything correctly
-	everything = palindromes(10)
+	for n in range(1, 100000000): palindromicConsecutiveSquares(n, limit)
+	return sum(values)    # Turns out some values can be expressed as the sum of consecutive squares in multiple ways
 
-solution = Solution(0)
+solution = Solution(2906969179)
 solution.logic = logic
 solution.run()
