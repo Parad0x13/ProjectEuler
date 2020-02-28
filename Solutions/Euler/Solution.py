@@ -7,7 +7,7 @@ class Solution:
         self.placement = placement
 
     def log(self, text):
-        print("[EULER] {}".format(text))
+        print("[EULER] {}".format(text), flush = True)
 
     """Must return a value"""
     def logic(self):
@@ -16,7 +16,6 @@ class Solution:
 
     def run(self):
         self.log("Executing Project Euler Solution '{}'".format(sys.argv[0].replace(".py", "")))
-        sys.stdout.flush()
 
         beg = timeit.default_timer()
         value = self.logic()
