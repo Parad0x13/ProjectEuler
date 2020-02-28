@@ -1,5 +1,4 @@
 from Euler.Solution import Solution
-import math
 
 def findTriangle(number):
     triangle = 0
