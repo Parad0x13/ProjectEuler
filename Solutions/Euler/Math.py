@@ -37,6 +37,7 @@ def properDivisors(n, alg = OPTIMIZED):
 
 def isPrime(n, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return isPrime_bruteforce(n)
+    if alg == POLLARDRHO: return isPrime_pollardrho(n)
 
 def isPrime_bruteforce(n):
     if n == 0 or n == 1: return False
@@ -47,6 +48,12 @@ def isPrime_bruteforce(n):
             return False
 
     return True
+
+# [BUG] Apparently this has some recursion issues? Not sure exactly but it needs to be fixed before using it
+def isPrime_pollardrho(n):
+    factors = primeFactors_pollardrho(n, alg = POLLARDRHO)
+    if len(factors) == 1: return True
+    return False
 
 def firstNPrimes(n, alg = BRUTEFORCE):
     retVal = []
