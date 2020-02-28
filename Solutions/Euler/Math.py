@@ -110,6 +110,7 @@ def isNumberAbundant(n, alg = OPTIMIZED):
     if sum(divisors) > n: return True
     return False
 
+# [TODO] There has to be a better more elegant way of doing this...
 def circularValues(n):
     retVal = []
     string = str(n)
