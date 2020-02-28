@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
     for a in range(1, 500):
@@ -8,6 +9,6 @@ def logic():
                     print("Found Pythagorean Triplet with a({}), b({}), c({}) who's combined product is {}".format(a, b, c, a * b * c))
                     return a * b * c
 
-solution = Solution(31875000)
+solution = Solution(value = 31875000, placement = None)
 solution.logic = logic
 solution.run()
