@@ -1,8 +1,5 @@
-# Answer = 5537376230
-# Refactored 2019.10.16.2107.EST
-# And once more at 2020.02.20.2140.EST
-
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 num_1 = [37107287533902102798797998220837590246510135740250,
          46376937677490009712648124896970078050417018260538,
@@ -110,6 +107,6 @@ def logic():
 	for i in range(100): num_2 += num_1[i]
 	return int(str(num_2)[:10])
 
-solution = Solution(5537376230)
+solution = Solution(value = 5537376230, placement = None)
 solution.logic = logic
 solution.run()
