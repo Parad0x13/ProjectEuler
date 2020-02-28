@@ -1,6 +1,7 @@
 # Solved 2019.08.12.1655.EST as the 22405th person to do so
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 # Uses Euclid's Method
 # [TODO] See if there's a faster way to optimize for larger values, e.g. testing if n is more than half of d etc...
@@ -26,6 +27,6 @@ def betweenTargets(D, targetL, targetR):
 def logic():
 	return betweenTargets(12000, (1, 3), (1, 2))
 
-solution = Solution(7295372)
+solution = Solution(value = 7295372, placement = 22405)
 solution.logic = logic
 solution.run()

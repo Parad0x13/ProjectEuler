@@ -1,6 +1,7 @@
 # Practically solved, but takes TOOOOOO long to brute-force equation!
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 factorials = []
 def genFactorials(maxVal):
@@ -69,6 +70,6 @@ def logic():
     print("Finished")
     print(thisValue)
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

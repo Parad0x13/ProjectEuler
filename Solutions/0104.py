@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 # [TODO] Aparantly fib numbers can be generated in O(logN) however I don't really understand the implementation
 # [NOTE] Not needed but I like this implementation
@@ -32,6 +33,6 @@ def logic():
 
 	print("Done")
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

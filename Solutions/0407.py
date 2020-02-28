@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def M(n):
     largest = 0
@@ -14,6 +15,6 @@ def logic():
 
 	print("Done with total of {}".format(total))
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

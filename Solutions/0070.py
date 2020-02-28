@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 factorsMemory = []
 def factorsMemory(n):
@@ -56,6 +57,6 @@ def logic():
 
 	print("Done")
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

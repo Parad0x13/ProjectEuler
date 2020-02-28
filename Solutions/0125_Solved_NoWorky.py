@@ -1,6 +1,7 @@
-# Solved 2019.08.22.1333.EST and was the 12032nd person to do so
+# Solved 2019.08.22.1333.EST
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 values = []
 def palindromicConsecutiveSquares(base, limit):
@@ -18,9 +19,11 @@ def palindromicConsecutiveSquares(base, limit):
         n += 1
 
 def logic():
-	for n in range(1, 100000000): palindromicConsecutiveSquares(n, limit)
-	return sum(values)    # Turns out some values can be expressed as the sum of consecutive squares in multiple ways
+    limit = 10 ** 8    # [BUG] Something is wrong with the limit here that's causing these issues...
+    for n in range(1, limit):
+        palindromicConsecutiveSquares(n, limit)
+    return sum(values)    # Turns out some values can be expressed as the sum of consecutive squares in multiple ways
 
-solution = Solution(2906969179)
+solution = Solution(value = 2906969179, placement = 12032)
 solution.logic = logic
 solution.run()

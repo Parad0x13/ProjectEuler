@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def generate(N):
     current = "1"
@@ -29,6 +30,6 @@ def logic():
 	#for n in range(40, N + 1): generate(n)
 	generate(40)
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

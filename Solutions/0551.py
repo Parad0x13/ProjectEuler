@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 import cProfile
 from line_profiler import LineProfiler
@@ -86,6 +87,6 @@ def logic():
 			print("Done with 10^{}".format(N))
 	#cProfile.run("test()")
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

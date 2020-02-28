@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 # https://www.wolframalpha.com/input/?i=%28%28%282%28%284%28%284%28%282%28%282%28%28%282%28a+%2F+3%29+-+1%29+%2F+3%29+%2F+3%29+-+1%29+%2F+3%29+-+1%29+%2F+3%29+%2B+2%29+%2F+3%29+%2B+2%29+%2F+3%29+-+1%29+%2F+3%29+%2F+3%29+%2F+3
 pattern = "DdDddUUdDD"
@@ -20,6 +21,6 @@ def discover(n):
 def logic():
 	discover("Not Sure")
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

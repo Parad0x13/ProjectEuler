@@ -1,4 +1,6 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
+
 from math import sqrt    # [NOTE] Isn't this redundant?
 from itertools import *
 from math import *
@@ -115,6 +117,6 @@ def FindSquarePivots():
 def logic():
 	FindSquarePivots()
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

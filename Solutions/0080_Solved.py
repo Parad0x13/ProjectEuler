@@ -1,6 +1,8 @@
-# Solved 2019.08.01.1042.EST. Was the 17563rd person to solve it
+# Solved 2019.08.01.1042.EST
 
 from Euler.Solution import Solution
+import Euler.Math as EM
+
 from decimal import *
 
 def logic():
@@ -13,6 +15,6 @@ def logic():
 			for item in a: total += int(item)
 	return total
 
-solution = Solution(40886)
+solution = Solution(value = 40886, placement = 17563)
 solution.logic = logic
 solution.run()

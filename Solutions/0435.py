@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def fib(N):
     if N == 0: return 0
@@ -34,6 +35,6 @@ def logic():
 	print()
 	print(total % mod)
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

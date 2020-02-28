@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def M(m, k, s, n):
     if n > m: return n - s
@@ -99,6 +100,6 @@ def logic():
 
 	print("Done Testing")
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

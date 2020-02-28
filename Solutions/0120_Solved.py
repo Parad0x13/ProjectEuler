@@ -1,6 +1,7 @@
-# I solved this 2019.05.14.1650.EST and was the 12086th person to do so
+# I solved this 2019.05.14.1650.EST
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def r(a, n): return ((a - 1) ** n + (a + 1) ** n) % (a ** 2)
 
@@ -22,6 +23,6 @@ def logic():
 	for a in range(lower, upper + 1): total += maxN(a)
 	return total
 
-solution = Solution(333082500)
+solution = Solution(value = 333082500, placement = 12086)
 solution.logic = logic
 solution.run()

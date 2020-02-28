@@ -1,9 +1,11 @@
-# Solved 2019.05.14.1503.EST. Was the 12204th person to solve it
+# Solved 2019.05.14.1503.EST
 
 # I don't like this solution though. I think it'd be smarter to count down from 1000000
 # and eliminate lines that don't work rather than calculate everything manually
 
 from Euler.Solution import Solution
+import Euler.Math as EM
+
 import math
 
 # Ignores primes
@@ -62,6 +64,6 @@ def logic():
 
 	return min(longest)
 
-solution = Solution(14316)
+solution = Solution(value = 14316, placement = 12204)
 solution.logic = logic
 solution.run()

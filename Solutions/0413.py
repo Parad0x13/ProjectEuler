@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def isOneChild(n):
     children = 0
@@ -30,6 +31,6 @@ def logic():
 	e = 7
 	evaluate(e)
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

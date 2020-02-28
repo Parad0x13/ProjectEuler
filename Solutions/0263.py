@@ -1,4 +1,5 @@
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def divisorsOf(x):
     divisors = []
@@ -15,6 +16,6 @@ def isDistinctDivisor(divisorArray):
 def logic():
 	isDistinctDivisor(divisorsOf(6))
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()

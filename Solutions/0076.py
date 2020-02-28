@@ -10,6 +10,7 @@
 # I guess the problem being asked is 'calculate unrestricted partitions'
 
 from Euler.Solution import Solution
+import Euler.Math as EM
 
 def logic():
 	e = 2
@@ -21,6 +22,6 @@ def logic():
 	for n in range(5, 10 ** e): sequence.append(sequence[-1], + fibmods[n])
 	for n in range(len(sequence)): print("{} = {}".format(n + 1, sequence[n]))
 
-solution = Solution(0)
+solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()
