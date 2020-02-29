@@ -202,3 +202,9 @@ def letterScore(string):
         if letter not in alphabet: continue    # Just incase anything non-lettery pops up
         retVal += alphabet.index(letter) + 1
     return retVal
+
+# [TODO] Make this actually fast...
+def fib(n):
+    values = [0, 1]
+    for N in range(n): values.append(values[-1] + values[-2])
+    return values[-1]
