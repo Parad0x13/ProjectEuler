@@ -208,3 +208,11 @@ def fib(n):
     values = [0, 1]
     for N in range(n): values.append(values[-1] + values[-2])
     return values[-1]
+
+# [TODO] Do this mathematically instead of by using strings
+def digitSum(n):
+    retVal = 0
+    string = str(n)
+    for digit in string:
+        retVal += int(digit)
+    return retVal
