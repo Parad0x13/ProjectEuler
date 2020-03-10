@@ -211,11 +211,11 @@ def fib(n):
 
 # [TODO] Do this mathematically instead of by using strings
 def digitSum(n):
-    retVal = 0
-    string = str(n)
-    for digit in string:
-        retVal += int(digit)
-    return retVal
+	assert type(n) == int, "digitSum(n) will only work on integers"
+
+	retVal = 0
+	for digit in str(n): retVal += int(digit)
+	return retVal
 
 def reverseInt(n):
     """
