@@ -1,10 +1,13 @@
 import sys
 import timeit
 
+import cProfile
+
 class Solution:
-    def __init__(self, value = None, placement = None):
+    def __init__(self, value = None, placement = None, profile = False):
         self.value = value
         self.placement = placement
+        self.profile = profile
 
     def log(self, text):
         print("[EULER] {}".format(text), flush = True)
@@ -16,6 +19,11 @@ class Solution:
 
     def run(self):
         self.log("Executing Project Euler Solution '{}'".format(sys.argv[0].replace(".py", "")))
+
+        # [TODO] Get this to actually time things and run value check
+        if self.profile:
+            cProfile.run("logic()")
+            return
 
         beg = timeit.default_timer()
         value = self.logic()

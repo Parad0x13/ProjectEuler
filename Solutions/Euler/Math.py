@@ -74,7 +74,7 @@ def primeFactors(n, alg = POLLARDRHO):
 
 # [TODO] This is not an elegant or effective solution
 # I need to find a way to properly do this...
-def primeFactors_pollardrho(n, alg = POLLARDRHO):
+def primeFactors_pollardrho(n):
     retVal = []
 
     if n < 2: return None
@@ -216,3 +216,30 @@ def digitSum(n):
     for digit in string:
         retVal += int(digit)
     return retVal
+
+def reverseInt(n):
+    """
+    retVal = 0
+    while n > 0:
+        digit = n % 10
+        retVal = (retVal * 10) + digit
+        n //= 10
+    return retVal
+    """
+
+    return int(str(n)[::1])    # Not sure why this is so much faster...
+
+def digitCount(n):
+    """
+    assert n > 0
+    return int(math.log10(n)) + 1
+    """
+
+    return len(str(n))    # Not sure why this is faster...
+
+# This function is actually faster than "return (str(x) in str(d))"
+def isDigitPresent(x, d):
+    while x > 0:
+        if x % 10 == d: return True
+        x //= 10
+    return False
