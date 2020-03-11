@@ -217,7 +217,7 @@ def figurateNumber(order, n):
     assert n > 0, "Cannot generate figurate of order {} for n of {}".format(order, n)
 
     a, b, c = figurateGenerators[order]
-    return int (n * (a * n + b) / c)
+    return n * (a * n + b) // c
 
 def firstNFigurateNumbers(order, n): return [figurateNumber(order, N) for N in range(1, n + 1)]
 
