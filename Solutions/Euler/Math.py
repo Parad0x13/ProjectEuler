@@ -88,7 +88,7 @@ def primeFactors(n, alg = POLLARDRHO):
 def primeFactors_pollardrho(n):
     retVal = []
 
-    if n < 2: return None
+    if n < 2: return []
     if isPrime(n): return [n]
 
     while True:
