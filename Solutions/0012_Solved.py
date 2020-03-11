@@ -6,7 +6,7 @@ def logic():
     n = 1
     goal = 500
     while True:
-        triangle = EM.triangularNumber(n)
+        triangle = EM.figurateNumber(3, n)
         divisors = EM.divisors(triangle)
         if len(divisors) > goal: return triangle
         n += 1

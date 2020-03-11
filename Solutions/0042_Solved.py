@@ -11,7 +11,7 @@ def logic():
     count = 0
     for word in words:
         score = EM.letterScore(word)
-        if EM.isNumberTriangular(score): count += 1
+        if EM.isFigurateNumber(3, score): count += 1
     return count
 
 solution = Solution(value = 162, placement = 35987)

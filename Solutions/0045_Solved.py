@@ -7,11 +7,11 @@ import Euler.Math as EM
 
 def logic():
     found = []
-    n = 0
+    n = 1
 
     while True:
-        triangle = EM.triangularNumber(n)
-        if EM.isNumberPentagonal(triangle) and EM.isNumberHexagonal(triangle): found.append(triangle)
+        triangle = EM.figurateNumber(3, n)
+        if EM.isFigurateNumber(5, triangle) and EM.isFigurateNumber(6, triangle): found.append(triangle)
         if len(found) == 3: break
         n += 1
 

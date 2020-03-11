@@ -8,12 +8,12 @@ def logic():
     Pj = 1
     while True:
         Pk = 1
-        Pj_pent = EM.pentagonalNumber(Pj)
+        Pj_pent = EM.figurateNumber(5, Pj)
         while Pk < Pj:
-            Pk_pent = EM.pentagonalNumber(Pk)
+            Pk_pent = EM.figurateNumber(5, Pk)
             added = Pj_pent + Pk_pent
             delta = Pj_pent - Pk_pent
-            if EM.isNumberPentagonal(added) and EM.isNumberPentagonal(delta): return delta
+            if EM.isFigurateNumber(5, added) and EM.isFigurateNumber(5, delta): return delta
             Pk += 1
         Pj += 1
 

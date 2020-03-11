@@ -213,8 +213,8 @@ figurateGenerators = [None, None, None,
 ( 7, -5,  2), (4, -3, 1), (9,  -7,  2), (5, -4, 1), (11, -9,  2), (6, -5, 1),
 (13, -11, 2), (7, -6, 1), (15, -13, 2), (8, -7, 1), (17, -15, 2), (9, -8, 1)]
 def figurateNumber(order, n):
-    assert order < len(figurateGenerators), "Generator for that figurate order does not exist"
-    assert n > 0
+    assert order < len(figurateGenerators), "Generator for figurate of order {} does not exist".format(order)
+    assert n > 0, "Cannot generate figurate of order {} for n of {}".format(order, n)
 
     a, b, c = figurateGenerators[order]
     return int (n * (a * n + b) / c)
@@ -224,8 +224,8 @@ def firstNFigurateNumbers(order, n): return [figurateNumber(order, N) for N in r
 # Figurate number checks can be generalized to: (math.sqrt(a * n + b) + c) / d, and can be pre-computed (0, 1, and 2 cannot be generated)
 figurateChecks = [None, None, None, (8, 1, 1, 2), (1, 0, 0, 1), (24, 1, 1, 6), (8, 1, 1, 4), (40, 9, 3, 10), (3, 1, 1, 3)]
 def isFigurateNumber(order, n):
-    assert order < len(figurateChecks), "Check for that figurate order does not exist"
-    assert n > 0
+    assert order < len(figurateChecks), "Check for figurate of order {} does not exist".format(order)
+    assert n > 0, "Cannot check figurate of order {} for n of".format(order, n)
 
     a, b, c, d = figurateChecks[order]
     N = (math.sqrt(a * n + b) + c) / d
