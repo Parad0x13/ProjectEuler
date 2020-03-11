@@ -275,6 +275,8 @@ def digitCount(n):
 
     return len(str(n))    # Not sure why this is faster...
 
+def digitCount_exponent(a, b): return int(1 + b * math.log10(a))
+
 # This function is actually faster than "return (str(x) in str(d))"
 def isDigitPresent(x, d):
     while x > 0:
