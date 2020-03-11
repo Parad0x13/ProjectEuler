@@ -69,6 +69,17 @@ def primesUnder(n, alg = BRUTEFORCE):
         if isPrime(N, alg): retVal.append(N)
     return retVal
 
+def nextPrime(n, alg = BRUTEFORCE):
+    n += 1
+    while True:
+        if isPrime(n, alg): return n
+        n += 1
+
+def extendPrimes(primes, n, alg = BRUTEFORCE):
+    for N in range(n):
+        primes.append(nextPrime(primes[-1], alg))
+    return primes
+
 def primeFactors(n, alg = POLLARDRHO):
     if alg == POLLARDRHO: return primeFactors_pollardrho(n)
 
@@ -136,12 +147,37 @@ def factorial_bruteforce(n):
 
 # I would really like to test this against Lehmer's GCD algorithm
 # Also I would like to add memoization to this and test that out too
+# Greatest Common Denominator
 def GCD(a, b, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return GCD_bruteforce(a, b)
 
 def GCD_bruteforce(a, b):
     if b == 0: return a
     return GCD_bruteforce(b, a % b)
+
+# This does not seem like an elegant solution at all...
+# Least Common Multiple
+def LCM(vals):
+    allFactors = []
+    for val in vals: allFactors.append(primeFactors(val))
+
+    uniques = []
+    for factor in allFactors: uniques += factors
+    uniques = set(uniques)
+
+    counts = {}
+    for factors in allFactors:
+        for unique in uniques:
+            count = factors.count(unique)
+
+            if unique not in counts: counts[unique] = count
+            counts[unique] = max(counts[unique], count)
+
+    total = 1
+    for unique in uniques:
+        for count in range(counts[unique]):
+            total *= unique
+    return total
 
 # All proper divisors sum to than n
 def isNumberPerfect(n, alg = OPTIMIZED):
@@ -170,28 +206,30 @@ def circularValues(n):
         string = string[1:] + string[0]
     return retVal
 
-def triangularNumber(n): return int(n * (1 * n + 1) / 2)
-def pentagonalNumber(n): return int(n * (3 * n - 1) / 2)
-def hexagonalNumber(n) : return int(n * (2 * n - 1) / 1)
+# http://oeis.org/wiki/Figurate_numbers, triangular numbers, tetragonal numbers (squares), pentagonal numbers, hexagonal numbers, etc...
+# Figurate numbers can be generalized to: int(n * (a * n + b) / c), and can be pre-computed (0, 1, and 2 cannot be generated)
+figurateGenerators = [None, None, None,
+( 1,  1,  2), (1,  0, 1), (3,  -1,  2), (2, -1, 1), (5,  -3,  2), (3, -2, 1),
+( 7, -5,  2), (4, -3, 1), (9,  -7,  2), (5, -4, 1), (11, -9,  2), (6, -5, 1),
+(13, -11, 2), (7, -6, 1), (15, -13, 2), (8, -7, 1), (17, -15, 2), (9, -8, 1)]
+def figurateNumber(order, n):
+    assert order < len(figurateGenerators), "Generator for that figurate order does not exist"
+    assert n > 0
 
-def firstNTriangularNumbers(n): return [triangularNumber(N) for N in range(n)]
-def firstNPentagonalNumbers(n): return [pentagonalNumber(N) for N in range(n)]
-def firstNHexagonalNumbers(n) : return [hexagonalNumber(N) for N in range(n)]
+    a, b, c = figurateGenerators[order]
+    return int (n * (a * n + b) / c)
 
-def isNumberTriangular(n):
-    N = (math.sqrt(8 * n + 1) - 1) / 2
-    if N == int(N): return True
-    return False
+def firstNFigurateNumbers(order, n): return [figurateNumber(order, N) for N in range(1, n + 1)]
 
-def isNumberPentagonal(n):
-    N = (math.sqrt(24 * n + 1) + 1) / 6
-    if N == int(N): return True
-    return False
+# Figurate number checks can be generalized to: (math.sqrt(a * n + b) + c) / d, and can be pre-computed (0, 1, and 2 cannot be generated)
+figurateChecks = [None, None, None, (8, 1, 1, 2), (1, 0, 0, 1), (24, 1, 1, 6), (8, 1, 1, 4), (40, 9, 3, 10), (3, 1, 1, 3)]
+def isFigurateNumber(order, n):
+    assert order < len(figurateChecks), "Check for that figurate order does not exist"
+    assert n > 0
 
-def isNumberHexagonal(n):
-    N = (math.sqrt(8 * n + 1) + 1) / 4
-    if N == int(N): return True
-    return False
+    a, b, c, d = figurateChecks[order]
+    N = (math.sqrt(a * n + b) + c) / d
+    return N == int(N)
 
 def isPermutation(a, b): return sorted(str(a)) == sorted(str(b))
 
