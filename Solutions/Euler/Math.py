@@ -283,3 +283,10 @@ def isDigitPresent(x, d):
         if x % 10 == d: return True
         x //= 10
     return False
+
+# Determines if a number cannot be divided evenly by any square above 1
+def isSquareFree(n):
+    for i in range(2, int(math.sqrt(n) + 1)):
+        if n % i == 0: n //= i
+        if n % i == 0: return False
+    return True
