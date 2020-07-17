@@ -290,3 +290,18 @@ def isSquareFree(n):
         if n % i == 0: n //= i
         if n % i == 0: return False
     return True
+
+"""Farey calculates all fractions between two values"""
+# [TODO] Does not compute simplified versions of fractions, make it able to do this too
+def Farey(N, a = (0, 1), b = (1, 1)):
+    retVal = [a, b]
+    for N in range(N):
+        tmp = [retVal[0]]
+        for n in range(len(retVal) - 1):
+            a = retVal[n + 0]
+            b = retVal[n + 1]
+            c = tuple(map(sum, zip(a, b)))
+            tmp.append(c)
+            tmp.append(b)
+        retVal = tmp
+    return retVal
