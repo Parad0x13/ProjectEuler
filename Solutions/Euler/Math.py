@@ -35,6 +35,12 @@ def properDivisors(n, alg = OPTIMIZED):
     except: pass
     return retVal
 
+def isAmicable(n, alg = OPTIMIZED):
+	a = sum(properDivisors(n, alg))
+	b = sum(properDivisors(a, alg))
+	if n == b and n != a: return True
+	return False
+
 def isPrime(n, alg = BRUTEFORCE):
     if alg == BRUTEFORCE: return isPrime_bruteforce(n)
     if alg == POLLARDRHO: return isPrime_pollardrho(n)
