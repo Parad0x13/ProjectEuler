@@ -4,7 +4,7 @@ from Euler.Solution import Solution
 import Euler.Math as EM
 
 def logic():
-    words = open("./resources/0042_words.txt").read()
+    words = open("./resources/words.txt").read()
     words = words.split(",")
     words = [word.replace("\"", "") for word in words]
 

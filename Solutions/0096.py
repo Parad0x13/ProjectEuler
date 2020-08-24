@@ -5,7 +5,7 @@ from resources.SudokuSolver import Sudoku
 
 def logic():
 	# Grab the grids provided by ProjectEuler and format them for my SudokuSolver
-	grids = open("./resources/0096_p096_sudoku.txt").readlines()
+	grids = open("./resources/p096_sudoku.txt").readlines()
 	everything = ""
 	for line in grids:
 		if "Grid" in line: continue

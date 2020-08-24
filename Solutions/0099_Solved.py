@@ -4,7 +4,7 @@ from Euler.Solution import Solution
 import Euler.Math as EM
 
 def logic():
-    data = open("resources/0099_p099_base_exp.txt", "r").read()
+    data = open("resources/p099_base_exp.txt", "r").read()
     data = data.split("\n")
     lines = data
 

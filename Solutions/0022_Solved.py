@@ -4,7 +4,7 @@ from Euler.Solution import Solution
 import Euler.Math as EM
 
 def logic():
-    data = open("./resources/0022_names.txt").read()
+    data = open("./resources/names.txt").read()
     names = data.split(",")
     names.sort()
 

@@ -32,7 +32,7 @@ def pointInsideTriangle(point, triangle):
     return False
 
 def logic():
-    data = open("resources/0102_p102_triangles.txt", "r").read()
+    data = open("resources/p102_triangles.txt", "r").read()
     data = data.split("\n")
     data = data[:-1]    # Account for ending newline character
 

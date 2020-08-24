@@ -54,7 +54,7 @@ def numeralForNumber(number):
     return retVal
 
 def logic():
-    data = open("resources/0089_p089_roman.txt", "r").read()
+    data = open("resources/p089_roman.txt", "r").read()
     data = data.split("\n")
     numerals = data
 

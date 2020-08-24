@@ -4,7 +4,7 @@ from Euler.Solution import Solution
 import Euler.Math as EM
 from itertools import product
 
-red = open("resources/0059_p059_cipher.txt", "r").read()
+red = open("resources/p059_cipher.txt", "r").read()
 red = red.split(",")
 
 def decrypt(data, key):
