@@ -18,7 +18,6 @@ def logic():
 	n = 2
 	newDelta = 1
 	prevDelta = newDelta
-	#stillCoin = False
 	while True:
 		c = coin(n)
 		isCoin = True if c < coins[-1] else False
@@ -27,19 +26,16 @@ def logic():
 			foundNs.append(n)
 			coins.append(c)
 			cDelta = coins[-2] - coins[-1]
-			#cDeltaRatio = coins[-2] / coins[-1]    # cDelta doesn't seem to be very helpful to reverse how much I should increase n by
 			nDelta = foundNs[-1] - foundNs[-2]
 			nDeltaRatio = nDelta / prevDelta
 			print("{} n:{}\t\tc:{}\tsum {}\t{:.2f}\tnDelta {} cDelta {}".format(len(coins), n, c, sum(coins), nDeltaRatio, nDelta, cDelta))
-			#print("{} n:{}\t\tc:{}\tsum {}\t{:.2f}\tnDelta {} cDelta {}".format(len(coins), n, c, sum(coins), cDeltaRatio, nDelta, cDelta))
 
 			newDelta = nDelta    # Adjust the delta to try and skip to the next value, otherwise return newDelta back to 1 and keep seeking
 			prevDelta = newDelta
-			#stillCoin = True
-		else:
-			#if stillCoin: n = foundNs[-1] * 2    # This might only be a very small speedup...
-			#stillCoin = False
-			newDelta = 1
+		else: newDelta = 1
+
+		# 54 n:10827725431 c:258162 sum 1517926517477964 nDelta 283827021   cDelta 409165
+		# 55 n:21939277883 c:107159 sum ???????????????? nDelta 11111552452 cDelta 151003, I think it took a little over an hour to get to this?
 
 		n += newDelta
 
