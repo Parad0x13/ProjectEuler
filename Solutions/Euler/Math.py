@@ -5,6 +5,11 @@ BRUTEFORCE = "BRUTEFORCE"
 OPTIMIZED = "OPTIMIZED"
 POLLARDRHO = "POLLARDRHO"
 
+def isSquare(n):
+    a = math.sqrt(n)
+    if a == int(a): return True
+    return False
+
 def divisors(n, alg = OPTIMIZED):
     if alg == BRUTEFORCE: return divisors_bruteforce(n)
     if alg == OPTIMIZED:  return divisors_optimized(n)
