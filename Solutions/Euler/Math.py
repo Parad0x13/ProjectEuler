@@ -258,6 +258,11 @@ def fib(n):
     for N in range(n): values.append(values[-1] + values[-2])
     return values[-1]
 
+def firstDigits(n, k):
+	digits = (int)(math.log10(n))
+	n = (int)(n / pow(10, digits - k + 1))
+	return n
+
 # [TODO] Do this mathematically instead of by using strings
 def digitSum(n):
 	assert type(n) == int, "digitSum(n) will only work on integers"
