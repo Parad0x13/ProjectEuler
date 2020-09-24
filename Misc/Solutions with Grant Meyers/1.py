@@ -1,0 +1,1 @@
+print(sum(set([n for n in range(0, 1000, 3)] + [n for n in range(0, 1000, 5)])))
