@@ -271,6 +271,12 @@ def digitSum(n):
 	for digit in str(n): retVal += int(digit)
 	return retVal
 
+def inverseDigitSum(n):
+    nineCount = n // 9
+    prefix = n - (nineCount * 9)
+    val = "{}{}".format(prefix, "9" * nineCount)
+    return int(val)
+
 def reverseInt(n):
     """
     retVal = 0

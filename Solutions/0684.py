@@ -31,6 +31,19 @@ def logic():
 		a = b
 		b = c
 
-solution = Solution(value = None, placement = None)
-solution.logic = logic
-solution.run()
+"""
+total = 0
+for n in range(2, 90):
+	fib = EM.fib(n)
+	print(n, fib)
+	current = EM.inverseDigitSum(EM.fib(n))
+	total += current
+print(total)
+"""
+print(EM.inverseDigitSum(24157817))    # TOO MANY NINES!
+# To solve this I'll have to be a bit smarter with how I add all the nines
+# rather than trying to do it as an integer. Man so many nines!
+
+#solution = Solution(value = None, placement = None)
+#solution.logic = logic
+#solution.run()
