@@ -1,3 +1,6 @@
+# There seems to be a way to calculate the first few digits with a different formula, however I do not yet understand it
+# https://math.stackexchange.com/questions/89403/is-there-a-way-to-find-the-first-digits-of-a-number
+
 from Euler.Solution import Solution
 import Euler.Math as EM
 
