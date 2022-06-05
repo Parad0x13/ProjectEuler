@@ -147,6 +147,26 @@ For 5 digits
 11111 -> yes, 9 variations
 
 So yea... this isn't as straight forward as I thought...
+
+I need to find a way of how many wildcards can exist
+
+For 1 digit we only have 1 wildcard, 1 digit must be the same
+For 2 digits we have 2 wildcards, 2 digits must be the same
+For 3 digits we have 3 wildcards, 2 digits must be the same limiting wildcards down to 2 possible
+For 4 digits we have 4 wildcards, 3 digits must be the same limiting wildcards down to 2 possible
+For 5 digits we have 5 wildcards, 3 digits must be the same
+	This leaves 2 digits open for wildcards
+
+This eventually will lead to some deterministic equation, however how do I find out what it is?...
+
+We must have over half the values the same. Once we find all possible wildcard variations we just multiply that by 9 for each digit
+
+For 5 digits 3 must be the same. This leave 2 additional digits up to chance
+The 3 same digits become one wildcard of 9
+Each additional wildcard digit can be 9 possible values
+This means we have 9**3 possibilities, at least
+We also have the situation where 4 digits are the same, as well as 5 digits
+But aren't these also accounted for already in the 9**3 possibilities?
 """
 
 def possiblePerDigits(N):
