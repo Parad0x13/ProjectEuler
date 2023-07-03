@@ -287,7 +287,7 @@ def reverseInt(n):
     return retVal
     """
 
-    return int(str(n)[::1])    # Not sure why this is so much faster...
+    return int(str(n)[::-1])    # Not sure why this is so much faster...
 
 def digitCount(n):
     """
