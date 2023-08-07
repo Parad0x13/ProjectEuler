@@ -22,7 +22,9 @@ class Solution:
 
         # [TODO] Get this to actually time things and run value check
         if self.profile:
-            cProfile.run("logic()")
+            # It may be possible for the subclass to rename the logic function, here we address that
+            name = self.logic.__name__
+            cProfile.run("{}()".format(name))
             return
 
         beg = timeit.default_timer()
