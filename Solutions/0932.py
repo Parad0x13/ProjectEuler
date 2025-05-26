@@ -1,9 +1,17 @@
+"""
+I should be able to start the calculation at sqrt(number) right?
+"""
+
 from Euler.Solution import Solution
 import Euler.Math as EM
-#import itertools
+
+import math
 
 def allDigitalSplits(number):
 	a = list(str(number))
+
+	# [NOTE] Need to ensure that this is actually a valid mathematical check
+	squareRoot = math.sqrt(number)    # No need to calculate this every loop...
 
 	if number < 10:
 		return [number]
@@ -18,6 +26,9 @@ def allDigitalSplits(number):
 		front = int(front)
 		back = int(back)
 
+		# Shouldn't we be able to skip past everything that isn't at least up to sqrt(number)?
+		if front > squareRoot: continue
+
 		# We aren't interested in values that are multiplied by zero
 		if front == 0: continue    # [NOTE] This check is redundant as the leading digit cannot be zero
 		if back == 0: continue
@@ -26,6 +37,7 @@ def allDigitalSplits(number):
 		if str(number) != str(front) + str(back): continue
 
 		# This seems to be a pattern maybe? I have NO IDEA if this is actually true or not... This is JUST A TEST
+		# This does save some time it seems, but I'm not convined it actually is mathematically correct
 		#if len(str(front)) > len(str(back)): break
 
 		#if front + back > number: break    # I don't know if this is true... It might miss a case where back has a preceeding zero and qualifies. Or it just might be a dumb check to begin with
@@ -47,7 +59,7 @@ def logic():
 			newVal = sum(val) ** 2
 			if newVal == number:
 				found.append(newVal)
-				print("Found a 2025 number '{}' split as such: {}".format(val, val))
+				print("Found a 2025 number '{}' split as such: {}".format(newVal, val))
 
 	print(found)
 	print(sum(found))
