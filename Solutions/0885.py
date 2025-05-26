@@ -23,7 +23,65 @@ def logic():
 		total += orderedDigits(n)
 	print(total)
 
-
 solution = Solution(value = None, placement = None)
 solution.logic = logic
 solution.run()
+
+"""
+So let's take S = 4
+The SMALLEST number would be
+1
+The LARGEST number you could come up with would be
+4444
+
+However how many times does for example '1' occur?
+0001
+0010
+0100
+1000
+So a total of 4 times
+
+What about '11'?
+0011
+0110
+1100
+
+0101
+1010
+
+1001
+Total of 6 times
+
+And '111'? Let's start high this time
+1110
+1101
+1011
+0111
+Total of 4 times
+
+And 1111?
+1111
+Total of 1 times
+
+So we get a sequence of 4, 6, 4, 1
+"""
+
+"""
+Let's try where S = 5
+00001
+00010
+00100
+01000
+10000
+
+00011
+00110
+01100
+11000
+
+00101
+01010
+10100
+"""
+# n!/(n - r)! nPR(p, r)
+# But is this it?
